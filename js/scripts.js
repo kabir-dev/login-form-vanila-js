@@ -4,25 +4,23 @@ const passwordField = form.password;
 const formBtn = document.querySelector(".form-btn");
 const submit = document.querySelector("#input-submit");
 
-let btnWrapper = formBtn.clientWidth;
-let btnWrapperXDistance = formBtn.offsetLeft;
-window.addEventListener("resize", (e) => {
-  btnWrapper = formBtn.clientWidth;
-  btnWrapperXDistance = formBtn.offsetLeft;
-});
-
 submit.addEventListener("mouseover", (event) => {
   let isEmail = chackEmail(),
     isPassword = chackPassword();
 
   if (!isEmail || !isPassword) {
-    if (event.clientX - btnWrapperXDistance <= btnWrapper / 2) {
-      formBtn.style.textAlign = "right";
-    } else {
-      formBtn.style.textAlign = "left";
+    if (formBtn.classList.contains("center")) {
+      formBtn.classList.remove("center");
+      formBtn.classList.add("left");
+    } else if (formBtn.classList.contains("left")) {
+      formBtn.classList.remove("left");
+      formBtn.classList.add("right");
+    } else if (formBtn.classList.contains("right")) {
+      formBtn.classList.remove("right");
+      formBtn.classList.add("center");
     }
   } else {
-    formBtn.style.textAlign = "center";
+    formBtn.classList.add("center");
   }
 });
 submit.addEventListener("click", (event) => {
@@ -30,13 +28,18 @@ submit.addEventListener("click", (event) => {
     isPassword = chackPassword();
 
   if (!isEmail || !isPassword) {
-    if (event.clientX - btnWrapperXDistance <= btnWrapper / 2) {
-      formBtn.style.textAlign = "right";
-    } else {
-      formBtn.style.textAlign = "left";
+    if (formBtn.classList.contains("center")) {
+      formBtn.classList.remove("center");
+      formBtn.classList.add("left");
+    } else if (formBtn.classList.contains("left")) {
+      formBtn.classList.remove("left");
+      formBtn.classList.add("right");
+    } else if (formBtn.classList.contains("right")) {
+      formBtn.classList.remove("right");
+      formBtn.classList.add("center");
     }
   } else {
-    formBtn.style.textAlign = "center";
+    formBtn.classList.add("center");
   }
 });
 
