@@ -73,6 +73,7 @@
       }
       .form-btn {
         margin-top: 30px;
+        text-align: center;
         .input-submit {
           @extend .btn;
           background-color: $fl_color;
@@ -87,14 +88,4 @@
       }
     }
   }
-}
-
-.center {
-  text-align: center;
-}
-.left {
-  text-align: left;
-}
-.right {
-  text-align: right;
 }

@@ -4,45 +4,6 @@ const passwordField = form.password;
 const formBtn = document.querySelector(".form-btn");
 const submit = document.querySelector("#input-submit");
 
-submit.addEventListener("mouseover", (event) => {
-  let isEmail = chackEmail(),
-    isPassword = chackPassword();
-
-  if (!isEmail || !isPassword) {
-    if (formBtn.classList.contains("center")) {
-      formBtn.classList.remove("center");
-      formBtn.classList.add("left");
-    } else if (formBtn.classList.contains("left")) {
-      formBtn.classList.remove("left");
-      formBtn.classList.add("right");
-    } else if (formBtn.classList.contains("right")) {
-      formBtn.classList.remove("right");
-      formBtn.classList.add("center");
-    }
-  } else {
-    formBtn.classList.add("center");
-  }
-});
-submit.addEventListener("click", (event) => {
-  let isEmail = chackEmail(),
-    isPassword = chackPassword();
-
-  if (!isEmail || !isPassword) {
-    if (formBtn.classList.contains("center")) {
-      formBtn.classList.remove("center");
-      formBtn.classList.add("left");
-    } else if (formBtn.classList.contains("left")) {
-      formBtn.classList.remove("left");
-      formBtn.classList.add("right");
-    } else if (formBtn.classList.contains("right")) {
-      formBtn.classList.remove("right");
-      formBtn.classList.add("center");
-    }
-  } else {
-    formBtn.classList.add("center");
-  }
-});
-
 const isRequierd = (value) => (value === "" ? false : true);
 
 const isEmailValid = (email) => {
@@ -50,14 +11,6 @@ const isEmailValid = (email) => {
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return regexE.test(email);
 };
-
-// const isPasswordSecure = (password) => {
-//   // const regexP = new RegExp(
-//   //   "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[_!@#$%^&*])(?=.{8,})"
-//   // );
-//   const regexP = new RegExp("^(?=.*[0-9])(?=.{6,})");
-//   return regexP.test(password);
-// };
 
 //show success message
 const showSuccess = (input) => {
